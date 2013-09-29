@@ -28,14 +28,15 @@ def hello_world():
 						# 10 articles per page
 						for x in range (0,10):
 							article_title = json_response['response']['docs'][x]['headline']['main']
+							article_title = article_title.encode('ascii','ignore')
 							title_list.append(article_title)
 					else:
 						print "Not getting the right JSON!"
 				else:
 					print "Status Code is not 200."
 			### Call Justin's Poem Stuff                                      
-			lyrics = Markup("<br>".join(PG.getPoem(title_list)))
-			web_url = generateAudio("".join(PG.getPoem(title_list)))
+			lyrics = Markup(".<br>".join(PG.getPoem(title_list))+"." )
+			web_url = generateAudio(" ".join(PG.getPoem(title_list)))
 			return render_template('results.html', lyrics=lyrics, web_url=web_url)
 		else:
 			print "Error with API Key config."

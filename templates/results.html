@@ -7,11 +7,19 @@
       <p>Made with love by Michael, Lisa, and Justin</p>
       <p>{{lyrics}}</p>
       <audio src={{web_url}} controls loop id="robot" preload="auto" autobuffer></audio>
-      <audio src="gRosVHSsjlzw.128.mp3" controls loop id="wrecking" preload="auto" autobuffer></audio>
+      <audio src="https://github.com/lifeismotley/NYTSongGenerator/raw/master/templates/gRosVHSsjlzw.128.mp3" controls loop id="wrecking" preload="auto" autobuffer></audio>
 <script type="text/javascript">
 function PlaySound(soundobj) {
 var thissound = document.getElementById(soundobj);
+if(soundobj=='robot')
+{
 thissound.play();
+}
+else {
+thissound.volume=0.2;
+thissound.currentTime=42;
+thissound.play();
+}
 }
 function PauseSound(soundobj) {
 var thissound = document.getElementById(soundobj);

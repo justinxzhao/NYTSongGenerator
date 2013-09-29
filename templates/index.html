@@ -1,14 +1,48 @@
-<html>
-  <head>
-    <title>New York Times Tunes</title>
-  </head>
-  <body>
-  		<h1>Welcome to New York Times Tunes</h1>
-      <h2>Made with love by Michael, Lisa, and Justin</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>New York Times Tunes | Welcome</title>
 
-	  <form action="result" method="POST">
-    	Query: <input type="text" name="query"><br>
-    </form>      
+	<!-- Included CSS Files -->
+  <link rel="stylesheet" href="static/css/zurb.topbar.css">
+  <link rel="stylesheet" href="static/css/footer.css">
+  <link rel="stylesheet" href="static/css/offcanvas.css">
+	<link rel="stylesheet" href="static/css/presentation.css">
 
-  </body>
+</head>
+<body class="off-canvas hide-extras">
+  <nav class="top-bar hide-for-small">
+      <ul>
+        <!-- Title Area -->
+        <li class="name">
+          <h1>
+            <a href="/">Home</a>
+          </h1>
+        </li>
+        <li class="toggle-topbar"><a href="#"></a></li>
+      </ul>       
+    </nav>
+
+  <header id="homepage" class="homeslide-1">
+
+    <div class="row">
+      <div class="six columns">
+        <a class='sidebar-button show-for-small' id="sidebarButton" href="#sidebar" ><img src="images/offcanvas/menu-wht.png"><h4>Foundation</h4></a>
+        <h1>New York Times Tunes</h1>
+
+        <h4>Generate a song for any current event topic. What's your <strong>query</strong>?</h4>
+        <form action="result" method="POST">
+          <input type="text" name="query"><br>
+        </form>
+      </div>
+    </div>
+
+  </header>
+    <div class="row">
+      <div class="nine columns">
+        <h3>Made with love by Lisa, Michael, and Justin.</h3>
+        <p>See the source <strong><a href="https://github.com/lifeismotley/NYTSongGenerator">here</a></strong>.</p>
+      </div>
+    </div>
+</body>
 </html>
