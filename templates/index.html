@@ -30,9 +30,17 @@
         <a class='sidebar-button show-for-small' id="sidebarButton" href="#sidebar" ><img src="images/offcanvas/menu-wht.png"><h4>Foundation</h4></a>
         <h1>New York Times Tunes</h1>
 
-        <h4>Generate a song for any current event topic. What's your <strong>query</strong>?</h4>
+        <h4>Generate a song for any current event topic.</h4>
         <form action="result" method="POST">
+          <h4><strong>Step 1.</strong> What's Your <strong>Query</strong>?</h4>
           <input type="text" name="query"><br>
+          <h4><strong>Step 2.</strong> What's Your <strong>Song</strong>?</h4>
+          <select name="songSelect">
+            <option value="0">"Wrecking Ball"</option>
+            <option value="1">"Blurred Lines"</option>
+          </select>
+          <h1> </h1>
+          <a type="submit" class="large button" id="mainDownload">Go -></a>
         </form>
       </div>
     </div>
