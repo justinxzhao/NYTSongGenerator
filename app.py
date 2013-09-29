@@ -33,7 +33,6 @@ def hello_world():
 				else:
 					print "Status Code is not 200."
 			### Call Justin's Poem Stuff                                      
-			print PG.getPoem(title_list)
 			return "<br> ".join(PG.getPoem(title_list))
 		else:
 			print "Error with API Key config."
