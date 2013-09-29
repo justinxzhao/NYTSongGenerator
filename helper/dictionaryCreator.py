@@ -17,25 +17,23 @@ f.close()
 
 # create the dictionaries
 dictByWord = {}
-dictByRhyme = defaultdict(list)
-dictBySyllable = defaultdict(list)
+#dictByRhyme = defaultdict(list)
+#dictBySyllable = defaultdict(list)
 
 # for all the words in the dictionary (one per line), find stats and add them to corresponding dictionaries
 for str in lines:
 	sections = re.split('[ ]', str)
 	word = sections[0]
-	#rhyme = filter( lambda x: x not in '1234567890', re.split('[ ]', str)[-1] )
 
-	rhyme = sections[-2] + " " + sections[-1]
+	rhyme = sections[-3] + " " + sections[-2] + " " + sections[-1]
 
 	# the number of numbers indicates the number of syllables
 	syllable = len ( filter(lambda x: x in '1234567890', list(str)) )
 	
 	w = Word(word, syllable, rhyme)
-
 	dictByWord[word] = w
-	dictByRhyme[rhyme].append(w)
-	dictBySyllable[syllable].append(w)
+	#dictByRhyme[rhyme].append(w)
+	#dictBySyllable[syllable].append(w)
 
 """ Print dictByWord
 for entry in dictByWord:
@@ -61,9 +59,10 @@ for entry in dictBySyllable:
 
 def getDictByWord():
 	return dictByWord
-
+"""
 def getDictByRhyme():
 	return dictByRhyme
 
 def getDictBySyllable():
 	return dictBySyllable
+"""
