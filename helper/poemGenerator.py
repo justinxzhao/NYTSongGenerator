@@ -17,6 +17,7 @@ def getPoem(lines):
 	usedLastWords = []
 	for str in iotas:
 		lastWord = re.split('[ ]', str)[-1].upper()
+		#lastWord = re.split('[ ]', str)[-1]
 		if lastWord in dictByWord:
 			# if the last word exists in our dictionary
 			rhyme = dictByWord[lastWord].rhyme
@@ -47,6 +48,7 @@ def getPoem(lines):
 			for iota in iotaRhymeDict[rhyme]:
 				if count < 2:
 					str.append(iota.upper())
+					#str.append(iota)
 					count = count+1
 
 	return str
