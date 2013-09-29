@@ -1,19 +1,10 @@
 import re
-import dictionaryCreator
+from dictionaryCreator import RhymingDictionary
 from collections import defaultdict
 
 # word dictionary
-dictByWord = dictionaryCreator.getDictByWord()
-
-"""
-def rhymesWith(word1, word2):
-	w1 = dictByWord[word1]
-	w2 = dictByWord[word2]
-	if w1.rhyme != w2.rhyme:
-		return 1
-	else:
-		return 0
-"""
+rc = RhymingDictionary()
+dictByWord = rc.getDictByWord()
 
 def getPoem(lines):
 	# create iotas of thoughts by split by: ,.;():
