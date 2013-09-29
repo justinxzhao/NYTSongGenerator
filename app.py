@@ -1,5 +1,4 @@
 from flask import *
-from flask import jsonify
 import requests
 import helper.poemGenerator as PG
 
@@ -17,14 +16,11 @@ def welcome():
 @app.route('/result', methods=['GET', 'POST'])
 def hello_world():
 	if request.method == 'POST':
-		#print request.form.get("query", "")
 		if app.config['NYTIMES_API_KEY']:
 			# iterate through pages
 			title_list = []
 			for i in range(0, 10):
-				#app.config['API_PAGE'] = str(i)
 				api_request = requests.get(app.config['API_PATH'] + request.form.get("query", "") + app.config['API_PAGEDEF'] + str(i) + app.config['API_PATH2'] + app.config['NYTIMES_API_KEY'])
-	#			print api_request
 				if api_request.status_code == 200:
 					json_response = api_request.json()
 					if json_response:
@@ -32,20 +28,15 @@ def hello_world():
 						for x in range (0,10):
 							article_title = json_response['response']['docs'][x]['headline']['main']
 							title_list.append(article_title)
-							print "TITLE#"+str(i)+", "+str(x)+": "+article_title
-	#				       		return jsonify(json_response)
 					else:
-						print "json_response no"
-	#				return jsonify(json_response)
+						print "Not getting the right JSON!"
 				else:
-					print "api_request no"
+					print "Status Code is not 200."
 			### Call Justin's Poem Stuff                                      
-			print "Poem!"
 			print PG.getPoem(title_list)
 			return "<br> ".join(PG.getPoem(title_list))
 		else:
-			print "config error"
-	#	return "we good"
+			print "Error with API Key config."
 	else:
 		return redirect('/')
 
