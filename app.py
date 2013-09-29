@@ -38,6 +38,7 @@ def hello_world():
 			### Call Justin's Poem Stuff                                      
 			lyrics = Markup(".<br>".join(PG.getPoem(title_list))+"." )
 			web_url = generateAudio(" ".join(PG.getPoem(title_list)), int(request.form.get("songSelect", "")))
+			print request.form.get("songSelect", "")
 			if(int(request.form.get("songSelect", "") ) == 0):
 				song_choice = "gRosVHSsjlzw.128.mp3"
 			else:
