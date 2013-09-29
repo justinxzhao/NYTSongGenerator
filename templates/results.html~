@@ -61,7 +61,7 @@ var thissound = document.getElementById(soundobj);
 if(soundobj=='robot')
 {
 }
-else if("{{song_choice}}".localeCompare("gRosVHSsjlzw.128.mp3")==0)
+else if({{song_choice}}.localeCompare("gRosVHSsjlzw.128.mp3")==0)
 {
 thissound.volume=0.2;
 thissound.currentTime=42;
@@ -72,7 +72,6 @@ thissound.currentTime=49;
 }
 thissound.play();
 }
-
 function PauseSound(soundobj) {
 var thissound = document.getElementById(soundobj);
 thissound.pause();
