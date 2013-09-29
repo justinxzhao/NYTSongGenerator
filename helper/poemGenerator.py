@@ -27,13 +27,18 @@ def getPoem(lines):
 
 	# hash iotas by last word rhyme
 	iotaRhymeDict = defaultdict(list)
+	usedLastWords = defaultdict(list)
 	for str in iotas:
 		lastWord = re.split('[ ]', str)[-1].upper()
 		if isInDictionary(lastWord):
 			rhyme = dictByWord[lastWord].rhyme
 		else:
 			rhyme = "NULL"
-		iotaRhymeDict[rhyme].append(str)
+
+		# check if the string already exists
+		if str not in iotaRhymeDict[rhyme]:
+			iotaRhymeDict[rhyme].append(str)
+			usedLastWords
 
 	"""
 	# print out all the iotas by rhyme
