@@ -15,7 +15,6 @@ class Word:
 class RhymingDictionary:
 	def __init__(self):
 		if os.path.isfile("rhymingDictionary.p"):
-			print "LOADED RHYMING DICTIONARY!!!"
 			self.dictByWord = pickle.load( open( "rhymingDictionary.p", "rb" ) )
 		else:
 			# open the dictionary text file

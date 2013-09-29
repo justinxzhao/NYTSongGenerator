@@ -1,13 +1,60 @@
-<html>
-  <head>
-    <title>New York Times Tunes - Moosik</title>
-  </head>
-  <body>
-    <h1>New York Times Tunes - Moosik</h1>
-      <p>Made with love by Michael, Lisa, and Justin</p>
-      <p>{{lyrics}}</p>
-      <audio src={{web_url}} controls loop id="robot" preload="auto" autobuffer></audio>
-      <audio src="https://github.com/lifeismotley/NYTSongGenerator/raw/master/templates/gRosVHSsjlzw.128.mp3" controls loop id="wrecking" preload="auto" autobuffer></audio>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>New York Times Tunes | Music</title>
+
+	<!-- Included CSS Files -->
+  <link rel="stylesheet" href="static/css/zurb.topbar.css">
+  <link rel="stylesheet" href="static/css/footer.css">
+  <link rel="stylesheet" href="static/css/offcanvas.css">
+	<link rel="stylesheet" href="static/css/presentation.css">
+
+</head>
+<body class="off-canvas hide-extras">
+  <nav class="top-bar hide-for-small">
+      <ul>
+        <!-- Title Area -->
+        <li class="name">
+          <h1>
+            <a href="/">Home</a>
+          </h1>
+        </li>
+        <li class="toggle-topbar"><a href="#"></a></li>
+      </ul>       
+    </nav>
+
+  <header id="homepage" class="homeslide-1">
+
+    <div class="row">
+      <div class="six columns">
+        <a class='sidebar-button show-for-small' id="sidebarButton" href="#sidebar" ><img src="images/offcanvas/menu-wht.png"><h4>Foundation</h4></a>
+        <h1>New York Times Tunes</h1>
+        <h4>{{lyrics}}</h4>
+
+        <h1> </h1>
+        
+        <audio src={{web_url}} controls loop id="robot" preload="auto" autobuffer></audio>
+      	<audio src="https://github.com/lifeismotley/NYTSongGenerator/raw/master/templates/gRosVHSsjlzw.128.mp3" controls loop id="wrecking" preload="auto" autobuffer></audio>
+
+      <h1> </h1>
+
+       <a onClick="PlaySound('wrecking'),PlaySound('robot')" class="large button" id="mainDownload">Play Both Sounds</a>
+       <h1> </h1>
+       <a onClick="PauseSound('wrecking'),PauseSound('robot')" class="large button" id="mainDownload">Pause Both Sounds</a>
+
+      </div>
+    </div>
+
+  </header>
+    <div class="row">
+      <div class="nine columns">
+        <h3>Made with love by Lisa, Michael, and Justin.</h3>
+        <p>See the source <strong><a href="https://github.com/lifeismotley/NYTSongGenerator">here</a></strong>.</p>
+      </div>
+    </div>
+</body>
+</html>
+
 <script type="text/javascript">
 function PlaySound(soundobj) {
 var thissound = document.getElementById(soundobj);
@@ -26,9 +73,3 @@ var thissound = document.getElementById(soundobj);
 thissound.pause();
 }
 </script>
-<form>
-<input type="button" value="PlaySound" onClick="PlaySound('wrecking'),PlaySound('robot')">
-<input type="button" value="PauseSound" onClick="PauseSound('wrecking'),PauseSound('robot')">
-</form>
-</body>
-</html>
