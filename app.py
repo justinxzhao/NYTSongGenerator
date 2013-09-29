@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import jsonify
 import requests
+import helper.poemGenerator as PG
 
 app = Flask(__name__)
 
@@ -27,11 +28,16 @@ def hello_world():
 #				       		return jsonify(json_response)
 				else:
 					print "json_response no"
+#				return jsonify(json_response)
 			else:
 				print "api_request no"
+		### Call Justin's Poem Stuff                                      
+		print "Poem!"
+		print PG.getPoem(title_list)
+		return "<br> ".join(PG.getPoem(title_list))
 	else:
 		print "config error"
-	return "we good"
+#	return "we good"
 
 if __name__ == '__main__':
 	app.run(debug=True)
