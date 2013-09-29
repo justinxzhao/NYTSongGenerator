@@ -22,8 +22,11 @@ dictBySyllable = defaultdict(list)
 
 # for all the words in the dictionary (one per line), find stats and add them to corresponding dictionaries
 for str in lines:
-	word = re.split('[ ]', str)[0]
-	rhyme = filter( lambda x: x not in '1234567890', re.split('[ ]', str)[-1] )
+	sections = re.split('[ ]', str)
+	word = sections[0]
+	#rhyme = filter( lambda x: x not in '1234567890', re.split('[ ]', str)[-1] )
+
+	rhyme = sections[-2] + " " + sections[-1]
 
 	# the number of numbers indicates the number of syllables
 	syllable = len ( filter(lambda x: x in '1234567890', list(str)) )

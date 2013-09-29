@@ -3,7 +3,7 @@ import dictionaryCreator
 from collections import defaultdict
 
 # open the sample file
-f = open('sample.txt')
+f = open('sample2.txt')
 
 # word dictionary
 dictByWord = dictionaryCreator.getDictByWord()
@@ -48,3 +48,18 @@ for rhyme in iotaRhymeDict:
 	for iota in rhymeList:
 		print iota
 	print ""
+
+# find rhyme schemes that have multiple iotas and build a string with rhyming pattern AABB
+str  = []
+for rhyme in iotaRhymeDict:
+	if rhyme != ' ' and len( iotaRhymeDict[rhyme] ) > 2:
+		count = 0
+		for iota in iotaRhymeDict[rhyme]:
+			if count < 2:
+				str.append(iota)
+				count = count+1
+
+# print out the poem
+print "THE POEM!"
+for item in str:
+	print item.upper()
