@@ -22,7 +22,7 @@ def generateAudio(lyrics):
     sonic_url = "https://api.sonicapi.com/process/elastiqueTune" \
         "?access_id=%s" \
         "&input_file=%s" \
-        "&tempo_factor=0.7" \
+        "&tempo_factor=0.75" \
         "&pitchcorrection_percent=90" \
         "&pitchdrift_percent=80" \
         "&midi_pitches=%s" % (access_id, input_file, midi_pitches) 

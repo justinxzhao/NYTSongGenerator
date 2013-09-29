@@ -28,6 +28,7 @@ def hello_world():
 						# 10 articles per page
 						for x in range (0,10):
 							article_title = json_response['response']['docs'][x]['headline']['main']
+							article_title = article_title.encode('ascii','ignore')
 							title_list.append(article_title)
 					else:
 						print "Not getting the right JSON!"
