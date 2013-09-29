@@ -15,16 +15,16 @@ def generateAudio(lyrics):
 
     access_id = "78908f19-88ab-4e11-ab95-ac47aecd8458"
 
-    midi_pitches = "70-70-70-70-70-70-69-69-65-69-67-65-70-69-69-65-69-67-" \
-        "65-70-69-69-65-65-69-67-67-65-69-67-65-70-65-65-65-69-67-67-65-70"
+    midi_pitches = "58-58-58-58-58-58-57-57-53-57-55-53-58-57-57-53-57-55-" \
+        "53-58-57-57-53-53-57-55-55-53-57-55-53-58-53-53-53-57-55-55-53-58-..."
 
 
     sonic_url = "https://api.sonicapi.com/process/elastiqueTune" \
         "?access_id=%s" \
         "&input_file=%s" \
-        "&tempo_factor=0.75" \
-        "&pitchcorrection_percent=60" \
-        "&pitchdrift_percent=100" \
+        "&tempo_factor=0.7" \
+        "&pitchcorrection_percent=90" \
+        "&pitchdrift_percent=80" \
         "&midi_pitches=%s" % (access_id, input_file, midi_pitches) 
 
     #print sonic_url
