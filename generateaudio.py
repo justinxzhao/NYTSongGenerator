@@ -6,7 +6,6 @@ def generateAudio(lyrics):
 
     s = lyrics.replace (" ", "+")
 
-
     tts_url = "http://tts-api.com/tts.mp3?q=%s&return_url=1" % s
     tts = urllib2.urlopen(tts_url)
     
@@ -23,8 +22,8 @@ def generateAudio(lyrics):
         "?access_id=%s" \
         "&input_file=%s" \
         "&tempo_factor=0.75" \
-        "&pitchcorrection_percent=90" \
-        "&pitchdrift_percent=80" \
+        "&pitchcorrection_percent=100" \
+        "&pitchdrift_percent=0" \
         "&midi_pitches=%s" % (access_id, input_file, midi_pitches) 
 
     #print sonic_url
