@@ -35,8 +35,8 @@ def hello_world():
 				else:
 					print "Status Code is not 200."
 			### Call Justin's Poem Stuff                                      
-			lyrics = Markup("<br>".join(PG.getPoem(title_list)))
-			web_url = generateAudio("".join(PG.getPoem(title_list)))
+			lyrics = Markup(".<br>".join(PG.getPoem(title_list))+"." )
+			web_url = generateAudio(" ".join(PG.getPoem(title_list)))
 			return render_template('results.html', lyrics=lyrics, web_url=web_url)
 		else:
 			print "Error with API Key config."
