@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import jsonify
 import requests
+import helper.poemGenerator as PG
 
 app = Flask(__name__)
 
@@ -20,6 +21,12 @@ def hello_world():
 					article_title = json_response['response']['docs'][x]['headline']['main']
 					title_list.append(article_title)
 					print article_title
+
+				### Call Justin's Poem Stuff
+				print "Poem!"
+				print PG.getPoem(title_list)
+				return "<br> ".join(PG.getPoem(title_list))
+
 #				return jsonify(json_response)
 			else:
 				print "json_response no"
