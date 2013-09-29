@@ -35,5 +35,9 @@ def hello_world():
 	else:
 		print "config error"
 
+@app.route('/about', methods=['GET'])
+def about():
+	return "About page"
+
 if __name__ == '__main__':
 	app.run(debug=True)
