@@ -33,7 +33,9 @@ def hello_world():
 				else:
 					print "Status Code is not 200."
 			### Call Justin's Poem Stuff                                      
-			return "<br> ".join(PG.getPoem(title_list))
+			lyrics = Markup("<br>".join(PG.getPoem(title_list)))
+			web_url = "https://api.sonicapi.com/process/elastiqueTune?access_id=78908f19-88ab-4e11-ab95-ac47aecd8458&input_file=http://media.tts-api.com/faa17ba12cd76886d3ebba1f92392994a6387b18.mp3&tempo_factor=0.75&pitchcorrection_percent=80&pitchdrift_percent=100&midi_pitches=58-58-58-58-58-58-57-57-53-57-55-53-58-57-57-53-57-55-53-58-57-57-53-53-57-55-55-53-57-55-53-58-53-53-53-57-55-55-53-58-..."
+			return render_template('results.html', lyrics=lyrics, web_url=web_url)
 		else:
 			print "Error with API Key config."
 	else:
