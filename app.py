@@ -21,32 +21,31 @@ def hello_world():
         if app.config['NYTIMES_API_KEY']:
             # iterate through pages
             title_list = []
-    for i in range(0, 10):
-        api_request = requests.get(app.config['API_PATH'] + request.form.get("query", "") + app.config['API_PAGEDEF'] + str(i) + app.config['API_PATH2'] + app.config['NYTIMES_API_KEY'])
-        if api_request.status_code == 200:
-            json_response = api_request.json()
-            if json_response:
-                # 10 articles per page
-                for x in range (0,10):
-                    article_title = json_response['response']['docs'][x]['headline']['main']
-                    article_title = article_title.encode('ascii','ignore')
-                    title_list.append(article_title)
-            else:
-                print "Not getting the right JSON!"
-        else:
-            print "Status Code is not 200."
+            for i in range(0, 10):
+                api_request = requests.get(app.config['API_PATH'] + request.form.get("query", "") + app.config['API_PAGEDEF'] + str(i) + app.config['API_PATH2'] + app.config['NYTIMES_API_KEY'])
+                if api_request.status_code == 200:
+                    json_response = api_request.json()
+                    if json_response:
+                        # 10 articles per page
+                        for x in range (0,10):
+                            article_title = json_response['response']['docs'][x]['headline']['main']
+                            article_title = article_title.encode('ascii','ignore')
+                            title_list.append(article_title)
+                    else:
+                        print "Not getting the right JSON!"
+                else:
+                    print "Status Code is not 200."
     ### Call Justin's Poem Stuff                                      
-    lyrics = Markup(".<br>".join(PG.getPoem(title_list))+"." )
-    web_url = generateAudio(" ".join(PG.getPoem(title_list)), int(request.form.get("songSelect", "")))
-    print request.form.get("songSelect", "")
-    if(int(request.form.get("songSelect", "") ) == 0):
-        song_choice = "gRosVHSsjlzw.128.mp3"
-    else:
-        song_choice = "e8Js0eoOErfL.128.mp3"
-    return render_template('results.html', lyrics=lyrics, web_url=web_url, song_choice=song_choice, query=request.form.get("query", "") )
-
-    else:
-        print "Error with API Key config."
+            lyrics = Markup(".<br>".join(PG.getPoem(title_list))+"." )
+            web_url = generateAudio(" ".join(PG.getPoem(title_list)), int(request.form.get("songSelect", "")))
+            print request.form.get("songSelect", "")
+            if(int(request.form.get("songSelect", "") ) == 0):
+                song_choice = "gRosVHSsjlzw.128.mp3"
+            else:
+                song_choice = "e8Js0eoOErfL.128.mp3"
+            return render_template('results.html', lyrics=lyrics, web_url=web_url, song_choice=song_choice, query=request.form.get("query", "") )
+        else:
+            print "Error with API Key config."
     else:
         return redirect('/')
 
@@ -58,4 +57,4 @@ if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     if port == 5000:
         app.debug = True
-        app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port)
