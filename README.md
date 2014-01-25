@@ -12,3 +12,12 @@ Generate a song and lyrics from New York Times published articles! Authored by L
 * Rhyming Scheme of all lyrics is AABBCCDDEE, etc, though this functionality might be extended in the future
 
 Hacked for Hack NY 2013
+
+# Pitch
+Tuning The Times sings you the news, all to the pop hit Wrecking Ball by Miley Cyrus.
+All you have to do is specify a topic. This topic is queried in the New York Times database and a set of relevant ideas and phrases are generated.
+From here, TTT chooses lyrics to fit the rhyme scheme.
+In addition, a text-to-speech API is used in combination with a pitch shifter to synthesize a voice that sings along to the melody of the song.
+The result is a hilarious way to brush up on your current events (in rhyme).
+
+**Now with the ability to sing some Blurred Lines by Robin Thicke.

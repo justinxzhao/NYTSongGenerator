@@ -42,8 +42,9 @@ def getPoem(lines):
 
 	# find rhyme schemes that have multiple iotas and build a string with rhyming pattern AABB...
 	str  = []
+	absoluteLimit = 24;
 	for rhyme in iotaRhymeDict:
-		if rhyme != 'NULL' and len( iotaRhymeDict[rhyme] ) >= 2:
+		if rhyme != 'NULL' and len( iotaRhymeDict[rhyme] ) >= 2 and len(str) <= absoluteLimit:
 			count = 0
 			for iota in iotaRhymeDict[rhyme]:
 				if count < 2:
